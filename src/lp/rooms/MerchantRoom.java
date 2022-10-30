@@ -18,9 +18,9 @@ public class MerchantRoom implements Room {
     @Override
     public boolean roomEvent(int index, Player player) {
         if(!loaded) {
-
+            loaded = true;
         } else {
-
+            return true;
         }
         return false;
     }
