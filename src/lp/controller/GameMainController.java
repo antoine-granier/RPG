@@ -13,7 +13,10 @@ public class GameMainController {
             if(data.getCurrentRoom().roomEvent(0, data.getPlayer())) {
                 System.out.println(data.getPlayer().toString());
                 System.out.println(data.displayMap());
-                data.gameOver();
+                Map.move();
+                System.out.println(data.displayMap());
+                System.out.println(data.getRoom());
+                //data.gameOver();
             }
         }
     }

@@ -26,7 +26,7 @@ public class StartRoom implements Room{
                 System.out.println("Select your cast :\n0 : Barbarian | gold : 150, hp : 250, start weapon : sword(damage : 15)\n1 : Wizard | gold : 250, hp : 100, start weapon : evil stick(damage : 20)\n2 : Archery | gold : 200, hp : 150, start weapon : bow(damage : 25)\n");
                 choice = sc.nextInt();
             }
-            sc.close();
+            //sc.close();
             switch (choice) {
                 case 0:
                     Map.initCast("Barbarian", name);
