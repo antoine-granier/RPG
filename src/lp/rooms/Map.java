@@ -1,5 +1,6 @@
 package lp.rooms;
 
+import lp.Randomizer;
 import lp.Tuple;
 import lp.player.Player;
 
@@ -16,19 +17,53 @@ public class Map {
     public Map() {
         isGameOver = false;
         currentRoom = new Tuple(0, 0);
-        //rooms[0][0] = new StartRoom();
-        int index = 1;
         int remainingFightRoom = 6;
-        int remainingMerchant = 2;
+        int remainingMerchant = 1;
         int remainingFireCamp = 2;
         int remainingTrapRoom = 5;
-        while (index < 17) {
-            for(int i = 0; i < rooms.length; i++) {
-                for(int j = 0; j < rooms.length; j++) {
-                    if(i == 0 && j == 0) {
-                        rooms[i][j] = new StartRoom();
+        for(int i = 0; i < rooms.length; i++) {
+            for(int j = 0; j < rooms.length; j++) {
+                if(i == 0 && j == 0) {
+                    rooms[i][j] = new StartRoom();
+                } else if(remainingFightRoom == 0 && remainingFireCamp == 0 && remainingMerchant == 0 && remainingTrapRoom == 0) {
+                    rooms[i][j] = null;
+                } else {
+                    int index = 0;
+                    while (index == 0) {
+                        int number = Randomizer.randomInt(0, 4);
+                        switch (number) {
+                            case 0:
+                                if (remainingFightRoom != 0) {
+                                    rooms[i][j] = new FightRoom(player);
+                                    index++;
+                                    remainingFightRoom--;
+                                }
+                                break;
+                            case 1:
+                                if (remainingTrapRoom != 0) {
+                                    rooms[i][j] = new TrapRoom();
+                                    index++;
+                                    remainingTrapRoom--;
+                                }
+                                break;
+                            case 2:
+                                if (remainingFireCamp != 0) {
+                                    rooms[i][j] = new FireCampRoom();
+                                    index++;
+                                    remainingFireCamp--;
+                                }
+                                break;
+                            case 3:
+                                if (remainingMerchant != 0) {
+                                    rooms[i][j] = new MerchantRoom();
+                                    index++;
+                                    remainingMerchant--;
+                                }
+                                break;
+                            default:
+                                throw new IllegalArgumentException("Error in map generation.");
+                        }
                     }
-
                 }
             }
         }
@@ -37,11 +72,11 @@ public class Map {
     public static void initCast(String cast, String name) {
         cast = cast;
         if(cast.equals("Barbarian")) {
-            player = new Player(name, 150, 250, cast);
+            player = new Player(name, 150, 800, cast);
         } else if(cast.equals("Wizard")) {
-            player = new Player(name, 250, 100, cast);
+            player = new Player(name, 250, 600, cast);
         } else {
-            player = new Player(name, 200, 150, cast);
+            player = new Player(name, 200, 700, cast);
         }
     }
 
@@ -248,8 +283,10 @@ public class Map {
             for(int j = 0; j < rooms.length; j++) {
                 if(i == currentRoom.i() && j == currentRoom.j()) {
                     stringBuilder.append("[ you ]");
+                } else if(rooms[i][j] == null) {
+                    stringBuilder.append("[ end ]");
                 } else {
-                    stringBuilder.append("[     ]");
+                    stringBuilder.append("[" + rooms[i][j].toString() + "]");
                 }
             }
             stringBuilder.append("|\n");

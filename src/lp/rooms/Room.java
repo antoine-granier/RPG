@@ -2,6 +2,8 @@ package lp.rooms;
 
 import lp.player.Player;
 
+import java.io.IOException;
+
 public interface Room {
     /**
      *
@@ -9,5 +11,5 @@ public interface Room {
      * @param player
      * @return
      */
-    public boolean roomEvent(int index, Player player);
+    public boolean roomEvent(int index, Player player) throws IOException;
 }

@@ -1,5 +1,6 @@
 package lp.player;
 
+import lp.stats.Stats;
 import lp.weapon.Bow;
 import lp.weapon.EvilStick;
 import lp.weapon.Sword;
@@ -13,7 +14,9 @@ public class Player {
     private int maxHp;
     private int hp;
     private final String cast;
+    private Weapon actualWeapon;
     private final ArrayList<Weapon> inventory;
+    private Stats stats;
 
     public Player(String name, int gold, int maxHp, String cast) {
         this.name = name;
@@ -22,7 +25,38 @@ public class Player {
         this.hp = maxHp;
         this.cast = cast;
         this.inventory = new ArrayList<Weapon>();
+        this.stats = new Stats();
         initInventory();
+    }
+
+    public void takeDamage(int damage) {
+        hp -= damage;
+    }
+
+    public void heal(int healPoint) {
+        hp += healPoint;
+        if(hp > maxHp) {
+            hp = maxHp;
+        }
+    }
+
+    public boolean isDead() {
+        if(hp <= 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public Stats getStats() {
+        return stats;
+    }
+
+    public int makeDamage() {
+        return actualWeapon.makeDamage();
+    }
+
+    public void endFight() {
+        stats = new Stats();
     }
 
     public void initInventory() {
@@ -36,6 +70,14 @@ public class Player {
             case "Archery":
                 inventory.add(new Bow());
         }
+    }
+
+    public ArrayList<Weapon> getInventory() {
+        return inventory;
+    }
+
+    public void changeWeapon(int index) {
+        actualWeapon = inventory.get(index);
     }
 
     @Override
