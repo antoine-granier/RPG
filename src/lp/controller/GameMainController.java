@@ -12,6 +12,11 @@ public class GameMainController {
 
     private static void mainLoop(Map data) throws IOException {
         while (!data.isGameOver()) {
+            if(data.getCurrentRoom() == null) {
+                System.out.println("You win !!!");
+                data.gameOver();
+                break;
+            }
             if(data.getCurrentRoom().roomEvent(0, data.getPlayer())) {
                 System.out.println(data.getPlayer().toString());
                 System.out.println(data.displayMap());
@@ -19,6 +24,7 @@ public class GameMainController {
                 System.out.println(data.displayMap());
                 System.out.println(data.getRoom());
                 if(data.getPlayer().isDead()) {
+                    System.out.println("You loose !!!");
                     data.gameOver();
                 }
             }

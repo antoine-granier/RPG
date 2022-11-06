@@ -118,7 +118,7 @@ public class Map {
                             nextRoom(currentRoom.i() + 1, currentRoom.j());
                             break;
                     }
-                } else if(y == rooms.length) {
+                } else if(y == rooms.length - 1) {
                     System.out.println("0 : go to left\n1 : go to top");
                     moveDirection = sc.nextInt();
                     while (moveDirection != 0 && moveDirection != 1) {
@@ -152,7 +152,7 @@ public class Map {
                             break;
                     }
                 }
-            } else if(x == rooms.length) {
+            } else if(x == rooms.length - 1) {
                 if (y == 0) {
                     System.out.println("0 : go to right\n1 : go to bottom");
                     moveDirection = sc.nextInt();
@@ -168,7 +168,7 @@ public class Map {
                             nextRoom(currentRoom.i() - 1, currentRoom.j());
                             break;
                     }
-                } else if(y == rooms.length) {
+                } else if(y == rooms.length - 1) {
                     System.out.println("0 : go to left\n1 : go to bottom");
                     moveDirection = sc.nextInt();
                     while (moveDirection != 0 && moveDirection != 1) {
@@ -221,7 +221,7 @@ public class Map {
                             nextRoom(currentRoom.i() + 1, currentRoom.j());
                             break;
                     }
-                } else if(y == rooms.length) {
+                } else if(y == rooms.length - 1) {
                     System.out.println("0 : go to bottom\n1 : go to left\n2 : go to top");
                     moveDirection = sc.nextInt();
                     while (moveDirection != 0 && moveDirection != 1 && moveDirection != 2) {
@@ -286,7 +286,7 @@ public class Map {
                 } else if(rooms[i][j] == null) {
                     stringBuilder.append("[ end ]");
                 } else {
-                    stringBuilder.append("[" + rooms[i][j].toString() + "]");
+                    stringBuilder.append("[     ]");
                 }
             }
             stringBuilder.append("|\n");

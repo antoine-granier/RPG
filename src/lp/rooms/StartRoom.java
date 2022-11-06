@@ -35,7 +35,7 @@ public class StartRoom implements Room{
                     Map.initCast("Wizard", name);
                     break;
                 case 2:
-                    Map.initCast("Achery", name);
+                    Map.initCast("Archery", name);
                     break;
                 default:
                     throw new InvalidParameterException("Invalid cast choice");

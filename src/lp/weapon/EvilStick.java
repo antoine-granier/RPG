@@ -4,7 +4,7 @@ public class EvilStick extends AbstractWeapon {
     private static int DAMAGE = 20;
 
     public EvilStick() {
-        super(DAMAGE, Rarity.COMMON);
+        super(DAMAGE, Rarity.COMMON, 100);
     }
 
     @Override

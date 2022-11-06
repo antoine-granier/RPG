@@ -4,7 +4,7 @@ public class Sword extends AbstractWeapon {
     private static int DAMAGE = 15;
 
     public Sword() {
-        super(DAMAGE, Rarity.COMMON);
+        super(DAMAGE, Rarity.COMMON, 100);
     }
 
     @Override

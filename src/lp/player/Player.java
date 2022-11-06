@@ -47,6 +47,18 @@ public class Player {
         return false;
     }
 
+    public boolean haveNecessaryMoney(int price) {
+        if(gold >= price) {
+            return true;
+        }
+        return false;
+    }
+
+    public void addToInventory(Weapon weapon) {
+        inventory.add(weapon);
+        gold -= weapon.getPrice();
+    }
+
     public Stats getStats() {
         return stats;
     }
@@ -69,6 +81,9 @@ public class Player {
                 break;
             case "Archery":
                 inventory.add(new Bow());
+                break;
+            default:
+                throw new IllegalStateException("Problem in player creation");
         }
     }
 
@@ -78,6 +93,10 @@ public class Player {
 
     public void changeWeapon(int index) {
         actualWeapon = inventory.get(index);
+    }
+
+    public String getCast() {
+        return cast;
     }
 
     @Override
