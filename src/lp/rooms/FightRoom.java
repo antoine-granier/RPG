@@ -115,7 +115,7 @@ public class FightRoom implements Room {
             entry.getValue().takeDamage(player.makeDamage());
         }
         deadOpponent();
-        return victory();
+        return victory(player);
     }
 
     //actualizes the opponents list
@@ -138,8 +138,9 @@ public class FightRoom implements Room {
         }
     }
 
-    public boolean victory() {
+    public boolean victory(Player player) {
         if (opponents.size() == 0) {
+            player.giveReward(20);
             return true;
         }
         return false;

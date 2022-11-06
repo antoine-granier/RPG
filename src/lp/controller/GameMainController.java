@@ -18,14 +18,15 @@ public class GameMainController {
                 break;
             }
             if(data.getCurrentRoom().roomEvent(data.getPlayer())) {
-                System.out.println(data.getPlayer().toString());
-                System.out.println(data.displayMap());
-                Map.move();
-                System.out.println(data.displayMap());
-                System.out.println(data.getRoom());
                 if(data.getPlayer().isDead()) {
                     System.out.println("You loose !!!");
                     data.gameOver();
+                } else {
+                    System.out.println(data.getPlayer().toString());
+                    System.out.println(data.displayMap());
+                    Map.move();
+                    System.out.println(data.displayMap());
+                    System.out.println(data.getRoom());
                 }
             }
         }

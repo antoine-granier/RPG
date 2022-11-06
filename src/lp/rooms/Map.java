@@ -72,11 +72,11 @@ public class Map {
     public static void initCast(String cast, String name) {
         cast = cast;
         if(cast.equals("Barbarian")) {
-            player = new Player(name, 150, 800, cast);
+            player = new Player(name, 150, 250, cast);
         } else if(cast.equals("Wizard")) {
-            player = new Player(name, 250, 600, cast);
+            player = new Player(name, 250, 100, cast);
         } else {
-            player = new Player(name, 200, 700, cast);
+            player = new Player(name, 200, 150, cast);
         }
     }
 

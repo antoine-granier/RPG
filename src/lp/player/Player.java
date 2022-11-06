@@ -110,4 +110,8 @@ public class Player {
                 ", inventory=" + inventory +
                 '}';
     }
+
+    public void giveReward(int reward) {
+        gold += reward;
+    }
 }
