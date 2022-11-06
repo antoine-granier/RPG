@@ -17,7 +17,7 @@ public class GameMainController {
                 data.gameOver();
                 break;
             }
-            if(data.getCurrentRoom().roomEvent(0, data.getPlayer())) {
+            if(data.getCurrentRoom().roomEvent(data.getPlayer())) {
                 System.out.println(data.getPlayer().toString());
                 System.out.println(data.displayMap());
                 Map.move();

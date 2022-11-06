@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class TrapRoom implements Room{
     @Override
-    public boolean roomEvent(int index, Player player) throws IOException {
+    public boolean roomEvent(Player player) throws IOException {
         player.takeDamage(20);
         return true;
     }

@@ -11,5 +11,5 @@ public interface Room {
      * @param player
      * @return
      */
-    public boolean roomEvent(int index, Player player) throws IOException;
+    public boolean roomEvent(Player player) throws IOException;
 }

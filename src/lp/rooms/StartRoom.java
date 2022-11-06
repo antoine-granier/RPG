@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class StartRoom implements Room{
     @Override
-    public boolean roomEvent(int index, Player player) {
+    public boolean roomEvent(Player player) {
         String name = "";
         int choice;
         try {

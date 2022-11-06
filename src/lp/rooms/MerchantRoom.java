@@ -17,7 +17,7 @@ public class MerchantRoom implements Room {
     }
 
     @Override
-    public boolean roomEvent(int index, Player player) {
+    public boolean roomEvent(Player player) {
         if(!loaded) {
             switch (player.getCast()) {
                 case "Barbarian":

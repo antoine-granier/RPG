@@ -90,7 +90,7 @@ public class FightRoom implements Room {
         }
     }
 
-    public boolean roomEvent(int index, Player player) throws IOException {
+    public boolean roomEvent(Player player) throws IOException {
         if(!chooseWeapon) {
             try {
                 Scanner sc = new Scanner(System.in);

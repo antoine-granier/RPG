@@ -22,9 +22,6 @@ public class SplitAction implements MonsterAction{
         } else if (slime.equals("Spike Slime L")) {
             ((FightRoom) Map.getCurrentRoom()).addOpponent(new SpikeSlimeM(slimeLife));
             ((FightRoom) Map.getCurrentRoom()).addOpponent(new SpikeSlimeM(slimeLife));
-        }  else if (slime.equals("Slime Boss")) {
-            ((FightRoom) Map.getCurrentRoom()).addOpponent(new AcidSlimeL(slimeLife));
-            ((FightRoom) Map.getCurrentRoom()).addOpponent(new SpikeSlimeL(slimeLife));
         }
         System.out.println(opponent.getName() + " splits!");
     }
