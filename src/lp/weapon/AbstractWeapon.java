@@ -27,6 +27,7 @@ public abstract class AbstractWeapon implements Weapon {
     @Override
     public String toString() {
         return "damage=" + damage +
-                ", rarity=" + rarity;
+                ", rarity=" + rarity
+                + ", price=" + price;
     }
 }
